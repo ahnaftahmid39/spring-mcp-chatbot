@@ -1,0 +1,26 @@
+spring:
+  config:
+      import: optional:file:.env
+  application:
+    name: mcp_demo
+  ai:
+    model:
+      chat: ollama
+    ollama:
+      base-url: http://127.0.0.1:11434
+      chat:
+        options:
+          model: qwen3:8b
+    
+          
+    mcp:
+      client:
+        stdio:
+          # root-change-notification: true
+          connections:
+            weather:
+              command: uv
+              args:
+                - --directory=/home/dsi/Desktop/ollama-mcp-client
+                - run
+                - weather.py
